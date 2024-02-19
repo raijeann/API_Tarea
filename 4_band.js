@@ -7,10 +7,10 @@ async function getArtistDetails() {
         if(res.ok) {
             const artistData = await res.json();
             const artistDetails = {
-                name: artistData.artists.strArtist,
-                genre: artistData.artists.strStyle,
-                genre1: artistData.artists.strGenre,
-                genre2: artistData.artists.strMood,
+                name: artistData.artists.map(name => name.strArtist),
+                genre: artistData.artists.map(genre => genre.strStyle),
+                genre1: artistData.artists.map(genre => genre.strGenre),
+                mood: artistData.artists.map(genre => genre.strMood),
             };
 
             return artistDetails;
@@ -27,6 +27,7 @@ async function getArtistDetails() {
 getArtistDetails().then(artistDetails => {
     if(artistDetails) {
         console.log(`Artist: ${artistDetails.name}`);
-        console.log(`Genres: ${artistDetails.genre}, ${artistDetails.genre1}, ${artistDetails.genre2}`)
+        console.log(`Genres: ${artistDetails.genre}, ${artistDetails.genre1}`);
+        console.log(`Mood: ${artistDetails.mood}`);
     }
 });
