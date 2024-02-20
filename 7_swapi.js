@@ -26,9 +26,9 @@ async function GetFilm(id) {
             } else {
                 console.error(`Error fetching character details for ${characterUrl}`)
             }
-    
-            return filmDetails;
         }
+
+        return filmDetails;
     } catch(error) {
         console.error(`Error: ${error.message}`);
         return null;
@@ -43,19 +43,19 @@ async function GetCharacters(url) {
             throw new Error(`HTTP error! Status: ${res.status}`);
         }
 
-        const charactersData = await res.json();
-        const charactersDetails = {
-            name: charactersData.name,
+        const characterData = await res.json();
+        const characterDetails = {
+            name: characterData.name,
         }
 
-        return charactersDetails;
+        return characterDetails;
     } catch(error) {
         console.error(`Error: ${error.message}`);
         return null;
     }
 }
 
-GetFilm(1)
+GetFilm(3)
     .then(filmDetails => {
         if(filmDetails) {
             console.log(`Film name: ${filmDetails.name}`);

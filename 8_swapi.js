@@ -55,7 +55,7 @@ async function GetResidents(url) {
     }
 }
 
-GetPlanet(1)
+GetPlanet(2)
     .then(planetDetails => {
         if(planetDetails) {
             console.log(`Planet name: ${planetDetails.name}`);
