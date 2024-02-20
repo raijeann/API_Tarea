@@ -1,4 +1,4 @@
-async function getBookDetails(query) {
+async function GetBookDetails(query) {
     const url = `https://openlibrary.org/search.json?q=${query}`;
 
     try {
@@ -20,12 +20,12 @@ async function getBookDetails(query) {
     }
 }
 
-getBookDetails("douglas adams")
+GetBookDetails("douglas adams")
     .then(bookDetails => {
         if(bookDetails) {
         console.log(`Titles:\n${bookDetails.titles.join('\n')}`);
         }
     })
     .catch(error => {
-        console.error(`Error fetch ing book details: ${error.message}`);
+        console.error(`Error fetching book details: ${error.message}`);
     })

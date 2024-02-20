@@ -23,7 +23,8 @@ async function getBookDetails(query) {
     }
 }
 
-getBookDetails("do android dream").then(bookDetails => {
+getBookDetails("do android dream")
+.then(bookDetails => {
     if(bookDetails) {
         console.log(`Name: ${bookDetails.name}`);
         // console.log(`Published: ${bookDetails.publish_year}`);

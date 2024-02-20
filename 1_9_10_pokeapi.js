@@ -1,4 +1,4 @@
-async function getPokemonDetails(pokemonName) {
+async function GetPokemonDetails(pokemonName) {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}/`;
 
     try {
@@ -6,7 +6,7 @@ async function getPokemonDetails(pokemonName) {
 
         if (res.ok) {
             const pokemonData = await res.json();
-            const locationArea = await getLocationArea(pokemonName);
+            const locationArea = await GetLocationArea(pokemonName);
 
             const pokemonDetails = {
                 name: pokemonData.name,
@@ -28,7 +28,7 @@ async function getPokemonDetails(pokemonName) {
     }
 }
 
-async function getLocationArea(pokemonName) {
+async function GetLocationArea(pokemonName) {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}/encounters`;
 
     try {
@@ -51,7 +51,7 @@ async function getLocationArea(pokemonName) {
     }
 }
 
-getPokemonDetails("treecko").then(pokemonDetails => {
+GetPokemonDetails("treecko").then(pokemonDetails => {
     if (pokemonDetails) {
         console.log(`Name: ${pokemonDetails.name}`);
         // console.log(`Height: ${pokemonDetails.height}`);
